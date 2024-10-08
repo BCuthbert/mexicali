@@ -1,0 +1,81 @@
+/* Reset some default browser padding and margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Full height of the viewport */
+    background-color: #f4f4f4;
+}
+
+/* Container for the dice */
+#diceContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Dice images */
+#dice1,
+#dice2 {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+}
+
+/* Message and buttons */
+#message {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#buttonContainer {
+    display: flex;
+    gap: 15px;
+    /* Adds space between the buttons */
+}
+
+/* Button styles */
+button {
+    padding: 15px 30px;
+    /* Bigger buttons for easy tap */
+    font-size: 1.2em;
+    background-color: #007bff;
+    /* Soft gray-blue */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    /* Slightly more rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #6fb1e3;
+    /* Slightly darker on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Ensure images and buttons are not selectable */
+#game img,
+#game button,
+#game p {
+    user-select: none;
+}
