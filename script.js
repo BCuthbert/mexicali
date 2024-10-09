@@ -1,10 +1,9 @@
-// script.js
-
 const dice1 = document.getElementById("dice1");
 const dice2 = document.getElementById("dice2");
 const message = document.getElementById("message");
 const toggleButton = document.getElementById("toggleButton");
 const rollButton = document.getElementById("rollButton");
+const backgroundImage = document.getElementById("backgroundImage");
 
 let diceHidden = false;
 let animationInterval = null;
@@ -20,7 +19,6 @@ function rollDice() {
 
 // Update dice images based on rolls
 function updateDiceImages(roll1, roll2) {
-    // Ensure the greater dice is on the left
     if (roll1 >= roll2) {
         dice1.src = `${roll1}.svg`;
         dice2.src = `${roll2}.svg`;
@@ -32,37 +30,22 @@ function updateDiceImages(roll1, roll2) {
 
 // Update the message text based on dice rolls
 function updateMessage(roll1, roll2) {
-    const backgroundImage = document.getElementById("backgroundImage");
+    // Reset the background image to be hidden initially
+    backgroundImage.style.display = "none"; // Start hidden by default
 
-    if (roll1 != roll2) {
-        if (roll1 == 2 && roll2 == 1) {
-            message.textContent = "Mexicali! Fill Boat and Pass to Anyone";
-            backgroundImage.style.display = "block"; // Show the background image
-            return;
-        }
-        if (roll1 == 3 && roll2 == 2) {
-            message.textContent = "Reroll, order reverses.";
-            backgroundImage.style.display = "none"; // Hide background image
-            return;
-        }
-        message.textContent = "";
-        backgroundImage.style.display = "none"; // Hide background image
-        return;
-    }
-
-    if (roll1 == roll2) {
-        if (roll1 == 1) {
+    if (roll1 === 2 && roll2 === 1) {
+        message.textContent = "Mexicali! Fill Boat and Pass to Anyone";
+        backgroundImage.style.display = "block"; // Show the background image
+    } else if (roll1 === roll2) {
+        if (roll1 === 1) {
             message.textContent = "Snake Eyes: Fill boat, Pass";
-            backgroundImage.style.display = "none"; // Hide background image
-            return;
+        } else {
+            message.textContent = "Doubles...";
         }
-        message.textContent = "Doubles...";
-        backgroundImage.style.display = "none"; // Hide background image
-        return;
+    } else {
+        message.textContent = ""; // Reset message
     }
-
 }
-
 
 // Play a quick animation before settling on the final dice roll
 function playDiceAnimation() {
@@ -94,7 +77,6 @@ document.body.addEventListener("click", (e) => {
 
 // Toggle dice visibility with hide/bullshit buttons
 toggleButton.addEventListener("click", () => {
-    const backgroundImage = document.getElementById("backgroundImage");
     diceHidden = !diceHidden;
     if (diceHidden) {
         dice1.style.display = "none";
@@ -102,14 +84,14 @@ toggleButton.addEventListener("click", () => {
         message.style.display = "none";
         toggleButton.textContent = "Bullshit";
         rollButton.style.display = "inline-block";
-        backgroundImage.style.display = "none";
+        backgroundImage.style.display = "none"; // Hide background image when dice are hidden
     } else {
         dice1.style.display = "inline-block";
         dice2.style.display = "inline-block";
         message.style.display = "block";
         toggleButton.textContent = "Hide";
         rollButton.style.display = "none";
-        backgroundImage.style.display = "block";
+        backgroundImage.style.display = "none"; // Reset background image when un-hiding
     }
 });
 
