@@ -1,0 +1,67 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.homepage {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+#flag {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 64px;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+#beginButton {
+    padding: 20px 40px;
+    font-size: 24px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#beginButton:hover {
+    background-color: #007ba7;
+}
+
+@media (max-width: 768px) {
+    #flag {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    #beginButton {
+        padding: 15px 30px;
+        font-size: 20px;
+    }
+}

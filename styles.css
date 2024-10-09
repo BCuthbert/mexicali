@@ -5,48 +5,95 @@
     box-sizing: border-box;
 }
 
-body,
-html {
+html,
+body {
     height: 100%;
+    /* Ensure the body takes full height */
+    margin: 0;
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+body {
     font-family: Arial, sans-serif;
 }
 
+/* Background image styles */
+#backgroundImage {
+    position: fixed;
+    /* Keeps it in place when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Cover the entire width */
+    height: 100%;
+    /* Cover the entire height */
+    z-index: -1;
+    /* Behind all content */
+    opacity: 0.1;
+    /* Adjust the opacity as needed */
+    display: none;
+    /* Start hidden */
+    object-fit: cover;
+    /* Cover the entire area without stretching */
+}
+
+/* Centering the game container */
 #game {
+    position: relative;
+    /* Position game content on top of the background */
+    z-index: 1;
+    /* Ensure game content is above the image */
+    text-align: center;
+    /* Center the text within the game container */
     display: flex;
+    /* Use flexbox for centering */
     flex-direction: column;
+    /* Stack elements vertically */
     justify-content: center;
+    /* Center vertically */
     align-items: center;
+    /* Center horizontally */
     height: 100vh;
-    /* Full height of the viewport */
-    background-color: #f4f4f4;
+    /* Full viewport height */
 }
 
 /* Container for the dice */
 #diceContainer {
     display: flex;
+    /* Align dice horizontally */
     justify-content: center;
+    /* Center dice */
     margin-bottom: 20px;
+    /* Space below dice */
 }
 
 /* Dice images */
 #dice1,
 #dice2 {
     width: 100px;
+    /* Fixed width */
     height: 100px;
+    /* Fixed height */
     margin: 0 10px;
+    /* Space between dice */
 }
 
 /* Message and buttons */
 #message {
     margin-bottom: 20px;
+    /* Space below message */
     font-size: 1.5em;
+    /* Font size for message */
     text-align: center;
+    /* Center message text */
 }
 
 #buttonContainer {
     display: flex;
+    /* Align buttons horizontally */
     gap: 15px;
-    /* Adds space between the buttons */
+    /* Space between buttons */
 }
 
 /* Button styles */
@@ -54,14 +101,19 @@ button {
     padding: 15px 30px;
     /* Bigger buttons for easy tap */
     font-size: 1.2em;
+    /* Font size for buttons */
     background-color: #007bff;
     /* Soft gray-blue */
     color: white;
+    /* Button text color */
     border: none;
+    /* No border */
     border-radius: 8px;
-    /* Slightly more rounded corners */
+    /* Rounded corners */
     cursor: pointer;
+    /* Pointer on hover */
     transition: background-color 0.3s;
+    /* Smooth background transition */
 }
 
 button:hover {
@@ -71,6 +123,7 @@ button:hover {
 
 button:focus {
     outline: none;
+    /* Remove focus outline */
 }
 
 /* Ensure images and buttons are not selectable */
@@ -78,4 +131,5 @@ button:focus {
 #game button,
 #game p {
     user-select: none;
+    /* Disable text selection */
 }
