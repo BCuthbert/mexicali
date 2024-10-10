@@ -105,3 +105,27 @@ rollButton.addEventListener("click", () => {
     toggleButton.textContent = "Hide";
     rollButton.style.display = "none";
 });
+
+
+// Select the menu elements
+const menuButton = document.getElementById("menuButton");
+const sideMenu = document.getElementById("sideMenu");
+
+// Function to toggle the side menu
+function toggleMenu() {
+    sideMenu.classList.toggle("active"); // Toggle the active class
+}
+
+// Event listener for the hamburger button to toggle the menu
+menuButton.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent the click from bubbling up to the document
+    toggleMenu(); // Toggle the menu open or closed
+});
+
+// Close the menu when clicking outside of it
+document.addEventListener("click", (event) => {
+    if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+        sideMenu.classList.remove("active"); // Close the menu
+    }
+});
+

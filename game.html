@@ -9,7 +9,34 @@
 </head>
 
 <body>
+    <!-- The background image and the game -->
     <img id="backgroundImage" src="mexicaliFlag.jpg" alt="Mexicali Flag">
+
+    <!-- Hamburger button -->
+    <button id="menuButton" class="hamburger">&#9776;</button>
+
+    <!-- The sliding menu -->
+    <div id="sideMenu" class="side-menu">
+        <!-- <button id="closeButton" class="close-btn">&times;</button> -->
+        <p>Rules
+        <ol>
+            <li>Read the dice as numbers => 4 and 2 reads 42</li>
+            <br>
+            <li>After rolling, remember your number. Hide your number.</li>
+            <br>
+            <li>If your number was less than the number preceding you, you may bullshit your number</li>
+            <br>
+            <li>Any double number (i.e. 22, 33) beats a normal number</li>
+
+        </ol>
+        <p>Special Cases</p>
+        <ol>
+            <li>11: Snake eyes. Fill the boat, and pass.</li>
+            <li>32: Show your number. Reroll and the order reverses</li>
+            <li></li>
+        </ol>
+        </p>
+    </div>
 
     <div id="game">
         <div id="diceContainer">
