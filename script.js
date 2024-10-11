@@ -42,6 +42,8 @@ function updateMessage(roll1, roll2) {
         } else {
             message.textContent = "Doubles...";
         }
+    } else if (roll1 === 3 && roll2 === 2) {
+        message.textContent = "32: Reroll and Order Reverses.";
     } else {
         message.textContent = ""; // Reset message
     }
